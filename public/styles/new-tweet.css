@@ -1,0 +1,38 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.new-tweet form, .new-tweet textarea {
+  width: 100%
+}
+
+.new-tweet textarea {
+  resize: none;
+  outline: none;
+  border-style: none;
+  background-color: transparent;
+  border-bottom: 5px solid rgb(114, 114, 114);
+}
+
+form > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-family: "Bungee", sans-serif;
+  align-items: center;
+}
+
+form > div > button {
+  border: none;
+  background-color: rgb(62, 62, 177);
+  color: white;
+  padding: 5px;
+}
+
+form > div > button:hover {
+  cursor: pointer;
+}

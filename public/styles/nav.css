@@ -6,16 +6,16 @@ nav {
   justify-content: space-between;
 }
 
-nav .component {
+nav > .component {
   color: #FFFFFF;
   margin: 1.5em;
 }
 
-nav span.title {
+nav > span.title {
   font-family: "Bungee", sans-serif;
 }
 
-nav div {
+nav > div {
   display: flex;
   flex-direction: column;
   align-items: center;

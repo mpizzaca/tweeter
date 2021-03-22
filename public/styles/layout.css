@@ -29,4 +29,7 @@ body {
  main {
    align-self: center;
    width: 90%;
+   background-color: transparent;
+   display: flex;
+   justify-content: center;
  }

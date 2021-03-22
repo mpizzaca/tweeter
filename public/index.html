@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;700&display=swap"
     rel="stylesheet">
@@ -46,49 +47,17 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna
-      aliqua. Tincidunt ornare massa eget egestas purus viverra. Amet justo donec enim diam vulputate ut pharetra.
-      Pellentesque sit amet porttitor eget dolor morbi. Neque ornare aenean euismod elementum. Semper viverra nam libero
-      justo laoreet sit amet. Risus ultricies tristique nulla aliquet enim. Eget mi proin sed libero enim sed faucibus
-      turpis in. Aliquam etiam erat velit scelerisque in. Turpis egestas sed tempus urna et pharetra. Vitae et leo duis
-      ut
-      diam quam nulla.
-      <br /><br />
-      Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Elit at imperdiet dui accumsan sit amet
-      nulla
-      facilisi. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Fermentum posuere urna nec tincidunt
-      praesent semper feugiat nibh. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id. Quam elementum
-      pulvinar
-      etiam non. Arcu bibendum at varius vel pharetra. Arcu cursus euismod quis viverra nibh. Eu volutpat odio facilisis
-      mauris sit amet massa vitae tortor. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam
-      malesuada. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus.
-      <br /><br />
-      Natoque penatibus et magnis dis parturient montes. Sit amet justo donec enim diam vulputate ut pharetra. Elit ut
-      aliquam purus sit amet luctus venenatis. Sagittis aliquam malesuada bibendum arcu vitae elementum. Leo duis ut
-      diam
-      quam nulla porttitor massa. Non consectetur a erat nam at. Tempor orci dapibus ultrices in iaculis nunc sed. Elit
-      sed vulputate mi sit amet mauris commodo quis. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
-      Pretium nibh ipsum consequat nisl vel pretium lectus quam id. Porttitor leo a diam sollicitudin tempor id eu nisl
-      nunc. Tristique senectus et netus et malesuada fames. Purus in massa tempor nec feugiat nisl pretium.
-      <br /><br />
-      Fames ac turpis egestas integer. Erat velit scelerisque in dictum non. Nisi scelerisque eu ultrices vitae auctor
-      eu.
-      Proin sagittis nisl rhoncus mattis rhoncus urna neque. Quis lectus nulla at volutpat diam. Ultrices in iaculis
-      nunc
-      sed augue lacus. Sagittis vitae et leo duis ut diam quam. Felis donec et odio pellentesque diam volutpat commodo.
-      Quis blandit turpis cursus in hac habitasse platea dictumst. Nibh sed pulvinar proin gravida hendrerit lectus.
-      <br /><br />
-      Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Bibendum neque egestas congue quisque egestas.
-      Ullamcorper malesuada proin libero nunc consequat interdum varius. Tortor pretium viverra suspendisse potenti
-      nullam
-      ac. Eu mi bibendum neque egestas congue quisque egestas diam. Sem integer vitae justo eget magna. Arcu odio ut sem
-      nulla pharetra diam sit amet nisl. Arcu non odio euismod lacinia. Nisi est sit amet facilisis magna. Enim neque
-      volutpat ac tincidunt vitae semper quis lectus nulla. Sit amet nulla facilisi morbi tempus iaculis urna id. Nunc
-      vel
-      risus commodo viverra. Vel quam elementum pulvinar etiam non quam. In nibh mauris cursus mattis molestie.
-    </p>
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <form method="POST" action="/tweets">
+        <label for="tweet-text">What are you humming about?</label>
+        <textarea name="text" id="tweet-text"></textarea>
+        <div>
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>
   </main>
 </body>
 
