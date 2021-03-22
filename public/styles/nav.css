@@ -12,6 +12,8 @@ nav > .component {
 }
 
 nav > span.title {
+  display: flex;
+  align-items: center;
   font-family: "Bungee", sans-serif;
 }
 
