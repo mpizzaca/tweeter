@@ -1,0 +1,10 @@
+header {
+  /* border: 1px solid red; */
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/absurdity.png');
+  background-color: #2fa333;
+}
