@@ -8,3 +8,11 @@ header {
   background-image: url('../images/absurdity.png');
   background-color: #2fa333;
 }
+
+header img {
+  margin-top: 25px;
+}
+
+header h2 {
+  color: white;
+}
