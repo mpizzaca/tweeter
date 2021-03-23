@@ -1,12 +1,12 @@
 body > header {
-  height: 400px;
+  /* height: 400px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url('../images/absurdity.png');
   background-color: #2fa333;
-  padding: 1rem 0 0 0;
+  padding: 140px 0 0 0;
 }
 
 header h2 {

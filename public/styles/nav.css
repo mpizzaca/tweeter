@@ -3,6 +3,8 @@ nav {
   background-color: #4056A1;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
 }
 
 nav > .nav-component {
