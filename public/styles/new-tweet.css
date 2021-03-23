@@ -42,3 +42,7 @@ form > label {
   font-weight: bold;
   color:rgba(114, 114, 114, 0.8)
 }
+
+output.counter.negative {
+  color: red;
+}
