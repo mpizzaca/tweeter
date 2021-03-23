@@ -49,6 +49,7 @@ img.profile-pic {
 .tweets > article > footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-top: 3px solid rgb(114, 114, 114);
   padding-top: 0.6rem;
   font-size: 60%;
@@ -57,6 +58,11 @@ img.profile-pic {
 
 .tweets > article > footer img {
   margin-right: 0.75rem;
-  width: 18px;
-  height: 18px;
+  padding: 0.3rem;
+  width: 28px;
+  height: 28px;
+}
+
+.tweets > article > footer img:hover {
+  cursor: pointer;
 }
