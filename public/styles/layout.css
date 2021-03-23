@@ -32,4 +32,10 @@ body {
    background-color: transparent;
    display: flex;
    justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+
+ main > section {
+   width: 80%;
  }

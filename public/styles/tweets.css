@@ -1,0 +1,62 @@
+.tweets {
+  margin-top: 4rem;
+}
+.tweets > article {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(114, 114, 114);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  
+}
+
+.tweets > article:hover {
+  box-shadow: 5px 5px rgb(207, 203, 241);
+}
+
+.tweets > article > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* User's handle */
+.tweets > article > header > h3 {
+  margin: 0 1rem 0 0;
+  color: rgb(176, 181, 194);
+}
+
+.tweets > article > header > div {
+  display: flex;
+  align-items: center;
+}
+
+/* User's full name */
+.tweets > article > header > div > h3 {
+  margin: 0 0 0 1rem;
+  font-weight: 300;
+}
+
+img.profile-pic {
+  width: 50px;
+  height: 50px;
+}
+
+.tweets .tweet-text {
+  font-weight: 600;
+}
+
+.tweets > article > footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 3px solid rgb(114, 114, 114);
+  padding-top: 0.6rem;
+  font-size: 60%;
+  font-weight: 600;
+}
+
+.tweets > article > footer img {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+}

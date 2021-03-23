@@ -1,5 +1,4 @@
-header {
-  /* border: 1px solid red; */
+body > header {
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -7,10 +6,7 @@ header {
   align-items: center;
   background-image: url('../images/absurdity.png');
   background-color: #2fa333;
-}
-
-header img {
-  margin-top: 25px;
+  padding: 1rem 0 0 0;
 }
 
 header h2 {
