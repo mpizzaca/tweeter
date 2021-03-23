@@ -65,4 +65,7 @@ img.profile-pic {
 
 .tweets > article > footer img:hover {
   cursor: pointer;
+  filter: invert(60%);
+  padding: 0.2rem;
+  transition: all 0.15s;
 }
