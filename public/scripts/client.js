@@ -88,6 +88,19 @@ const renderTweets = tweets => {
   $('.tweets').append(tweetElements);
 };
 
+const handleTweetSubmit = function(event) {
+  event.preventDefault();
+  const data = $(this).serialize();
+  $.ajax({
+    url: '/tweets',
+    method: 'POST',
+    data,
+  })
+  .then(res => console.log('Tweet saved successfully', res))
+  .catch(err => console.log('Error saving tweet', err));
+};
+
 $(document).ready(() => {
   renderTweets(initialTweets);
+  $('form').on('submit', handleTweetSubmit);
 });
