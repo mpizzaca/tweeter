@@ -4,30 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const initialTweets = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1616434810490
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1616521210490
-  }
-];
+const formatTweetDateString = createdAt => {
+  const daysSinceCreation = Math.round((new Date() - new Date(createdAt)) / (1000 * 60 * 60 * 24));
+  if (daysSinceCreation === 0) return 'today';
+  if (daysSinceCreation === 1) return `${daysSinceCreation} day ago`;
+  return `${daysSinceCreation} days ago`;
+}
 
 const createTweetElement = tweet => {
   
@@ -53,9 +35,9 @@ const createTweetElement = tweet => {
   // setup tweet footer elements
   const $tweetFooter = $('<footer>'),
     $tweetFooterDate = $('<span>');
-  const tweetDaysSinceCreated = Math.round((new Date() - new Date(tweet.created_at)) / (1000 * 60 * 60 * 24));
-  const tweetDateContent = tweetDaysSinceCreated > 1 ? `${tweetDaysSinceCreated} days ago` : `${tweetDaysSinceCreated} day ago`;
-  $tweetFooterDate.append(tweetDateContent);
+  const formattedDate = formatTweetDateString(tweet.created_at)
+  $tweetFooterDate.append(formattedDate);
+
   // shows exact tweet creation time on hover
   $tweetFooterDate.attr('title', new Date(tweet.created_at));
 
@@ -90,6 +72,17 @@ const renderTweets = tweets => {
 
 const handleTweetSubmit = function(event) {
   event.preventDefault();
+
+  // validate tweet
+  const tweetContent = $(this).children('#tweet-text').val();
+  if (tweetContent.length === 0) {
+    return alert('Tweet must have some content!');
+  }
+
+  if (tweetContent.length > 140) {
+    return alert('Tweet cannot exceed 140 characters!');
+  }
+
   const data = $(this).serialize();
   $.ajax({
     url: '/tweets',
@@ -100,7 +93,13 @@ const handleTweetSubmit = function(event) {
   .catch(err => console.log('Error saving tweet', err));
 };
 
+const loadTweets = () => {
+  $.ajax({ url: '/tweets' })
+  .then(renderTweets)
+  .catch(console.log)
+};
+
 $(document).ready(() => {
-  renderTweets(initialTweets);
+  loadTweets();
   $('form').on('submit', handleTweetSubmit);
 });
