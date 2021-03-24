@@ -102,7 +102,7 @@ const handleTweetSubmit = function(event) {
   if (tweetContent.length > 140) {
     return displayTweetError('⚠️ Tweet cannot exceed 140 characters!');
   }
-
+  // once validated, send data to server
   const data = $(this).serialize();
   $.ajax({
     url: '/tweets',
@@ -113,7 +113,7 @@ const handleTweetSubmit = function(event) {
     // clear tweet text & reset character count
     $(this).children('#tweet-text').val(null);
     $(this).children('div').children('.counter').val(140);
-  
+    // reload tweets
     loadTweets();
   })
   .catch(err => console.log('Error saving tweet', err));
