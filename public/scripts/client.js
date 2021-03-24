@@ -24,19 +24,19 @@ const createTweetElement = tweet => {
     $tweetHandle = $('<h3>');
   $tweetAvatar.addClass('profile-pic');
   $tweetAvatar.attr('src', tweet.user.avatars);
-  $tweetName.append(tweet.user.name);
-  $tweetHandle.append(tweet.user.handle);
+  $tweetName.text(tweet.user.name);
+  $tweetHandle.text(tweet.user.handle);
 
   // setup tweet content element
   const $tweetContent = $('<p>');
   $tweetContent.addClass('tweet-text');
-  $tweetContent.append(tweet.content.text);
+  $tweetContent.text(tweet.content.text);
 
   // setup tweet footer elements
   const $tweetFooter = $('<footer>'),
     $tweetFooterDate = $('<span>');
   const formattedDate = formatTweetDateString(tweet.created_at)
-  $tweetFooterDate.append(formattedDate);
+  $tweetFooterDate.text(formattedDate);
 
   // shows exact tweet creation time on hover
   $tweetFooterDate.attr('title', new Date(tweet.created_at));
@@ -63,6 +63,10 @@ const createTweetElement = tweet => {
 };
 
 const renderTweets = tweets => {
+  // clear any existing tweets
+  $('.tweets').empty();
+  // sort by most recent
+  tweets.sort((a, b) => b.created_at - a.created_at);
   const tweetElements = [];
   for (const tweet of tweets) {
     tweetElements.push(createTweetElement(tweet));
@@ -70,18 +74,34 @@ const renderTweets = tweets => {
   $('.tweets').append(tweetElements);
 };
 
+const displayTweetError = msg => {
+  const errorLabel = $('form > label.error');
+  if (!msg) {
+    return errorLabel.slideUp();
+  }
+  errorLabel.queue(() => {
+    errorLabel.text(msg);
+    errorLabel.dequeue();
+  });
+  errorLabel.slideDown();
+};
+
 const handleTweetSubmit = function(event) {
   event.preventDefault();
+  displayTweetError(null);
 
   // validate tweet
   const tweetContent = $(this).children('#tweet-text').val();
   if (tweetContent.length === 0) {
-    return alert('Tweet must have some content!');
+    return displayTweetError('Tweet cannot be empty!');
   }
 
   if (tweetContent.length > 140) {
-    return alert('Tweet cannot exceed 140 characters!');
+    return displayTweetError('Tweet cannot exceed 140 characters!');
   }
+
+  // if no error, make sure there's no error showing
+  displayTweetError(null);
 
   const data = $(this).serialize();
   $.ajax({
@@ -89,7 +109,12 @@ const handleTweetSubmit = function(event) {
     method: 'POST',
     data,
   })
-  .then(res => console.log('Tweet saved successfully', res))
+  .then(res => {
+    console.log('Tweet saved successfully', res);
+    // clear tweet textarea
+    $(this).children('#tweet-text').val(null);
+    loadTweets();
+  })
   .catch(err => console.log('Error saving tweet', err));
 };
 
@@ -100,6 +125,9 @@ const loadTweets = () => {
 };
 
 $(document).ready(() => {
+  // hide our error message - will be shown if user enters malformed tweet
+  $('form > label.error').hide();
+  
   loadTweets();
   $('form').on('submit', handleTweetSubmit);
 });

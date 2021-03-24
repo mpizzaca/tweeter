@@ -45,3 +45,9 @@ form > label {
 output.counter.negative {
   color: red;
 }
+
+label.error {
+  color: red;
+  margin-top: 1rem;
+  display: block;
+}
