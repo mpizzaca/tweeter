@@ -71,18 +71,11 @@ const createTweetElement = tweet => {
   $tweetActionElement3.attr('alt, heart');
 
   // put together the final article element
-  $tweetArticle.append($tweetHeader);
-  $tweetHeader.append($tweetHeaderDiv);
-  $tweetHeaderDiv.append($tweetAvatar);
-  $tweetHeaderDiv.append($tweetName);
-  $tweetHeader.append($tweetHandle);
-  $tweetArticle.append($tweetContent);
-  $tweetArticle.append($tweetFooter);
-  $tweetFooter.append($tweetFooterDate);
-  $tweetFooter.append($tweetActionElements);
-  $tweetActionElements.append($tweetActionElement1);
-  $tweetActionElements.append($tweetActionElement2);
-  $tweetActionElements.append($tweetActionElement3);
+  $tweetArticle.append($tweetHeader, $tweetContent, $tweetFooter);
+  $tweetHeader.append($tweetHeaderDiv, $tweetHandle);
+  $tweetHeaderDiv.append($tweetAvatar, $tweetName);
+  $tweetFooter.append($tweetFooterDate, $tweetActionElements);
+  $tweetActionElements.append($tweetActionElement1, $tweetActionElement2, $tweetActionElement3);
 
   return $tweetArticle;
 };
