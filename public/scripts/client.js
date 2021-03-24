@@ -110,9 +110,10 @@ const handleTweetSubmit = function(event) {
     data,
   })
   .then(res => {
-    console.log('Tweet saved successfully', res);
-    // clear tweet textarea
+    // clear tweet text & reset character count
     $(this).children('#tweet-text').val(null);
+    $(this).children('div').children('.counter').val(140);
+  
     loadTweets();
   })
   .catch(err => console.log('Error saving tweet', err));
