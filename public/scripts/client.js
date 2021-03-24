@@ -79,6 +79,7 @@ const displayTweetError = msg => {
   if (!msg) {
     return errorLabel.slideUp();
   }
+  // queue the text change so it will wait until slideUp has finished (if a previous error was showing)
   errorLabel.queue(() => {
     errorLabel.text(msg);
     errorLabel.dequeue();
@@ -87,21 +88,20 @@ const displayTweetError = msg => {
 };
 
 const handleTweetSubmit = function(event) {
+  // stop default form page refresh
   event.preventDefault();
+  // hide any previous errors
   displayTweetError(null);
 
   // validate tweet
   const tweetContent = $(this).children('#tweet-text').val();
   if (tweetContent.length === 0) {
-    return displayTweetError('Tweet cannot be empty!');
+    return displayTweetError('⚠️ Tweet cannot be empty!');
   }
 
   if (tweetContent.length > 140) {
-    return displayTweetError('Tweet cannot exceed 140 characters!');
+    return displayTweetError('⚠️ Tweet cannot exceed 140 characters!');
   }
-
-  // if no error, make sure there's no error showing
-  displayTweetError(null);
 
   const data = $(this).serialize();
   $.ajax({

@@ -50,4 +50,6 @@ label.error {
   color: red;
   margin-top: 1rem;
   display: block;
+  padding: 0.5rem;
+  border: 3px solid red;
 }
