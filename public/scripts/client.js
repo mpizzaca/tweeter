@@ -9,7 +9,7 @@ const formatTweetDateString = createdAt => {
   if (daysSinceCreation === 0) return 'today';
   if (daysSinceCreation === 1) return `${daysSinceCreation} day ago`;
   return `${daysSinceCreation} days ago`;
-}
+};
 
 const createTweetElement = tweet => {
   
@@ -35,7 +35,7 @@ const createTweetElement = tweet => {
   // setup tweet footer elements
   const $tweetFooter = $('<footer>'),
     $tweetFooterDate = $('<span>');
-  const formattedDate = formatTweetDateString(tweet.created_at)
+  const formattedDate = formatTweetDateString(tweet.created_at);
   $tweetFooterDate.text(formattedDate);
 
   // shows exact tweet creation time on hover
@@ -98,10 +98,10 @@ const handleTweetSubmit = function(event) {
   if (tweetContent.length === 0) {
     return displayTweetError('⚠️ Tweet cannot be empty!');
   }
-
   if (tweetContent.length > 140) {
     return displayTweetError('⚠️ Tweet cannot exceed 140 characters!');
   }
+  
   // once validated, send data to server
   const data = $(this).serialize();
   $.ajax({
@@ -109,20 +109,20 @@ const handleTweetSubmit = function(event) {
     method: 'POST',
     data,
   })
-  .then(res => {
+    .then(res => {
     // clear tweet text & reset character count
-    $(this).children('#tweet-text').val(null);
-    $(this).children('div').children('.counter').val(140);
-    // reload tweets
-    loadTweets();
-  })
-  .catch(err => console.log('Error saving tweet', err));
+      $(this).children('#tweet-text').val(null);
+      $(this).children('div').children('.counter').val(140);
+      // reload tweets
+      loadTweets();
+    })
+    .catch(err => console.log('Error saving tweet', err));
 };
 
 const loadTweets = () => {
   $.ajax({ url: '/tweets' })
-  .then(renderTweets)
-  .catch(console.log)
+    .then(renderTweets)
+    .catch(console.log);
 };
 
 const toggleNewTweetBox = () => {

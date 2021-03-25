@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $('textarea#tweet-text').on('input', function () {
+  $('textarea#tweet-text').on('input', function() {
     const textAreaLength = $(this).val().length;
     const remainingCharsOutput = $(this).siblings('div').children('.counter');
     
