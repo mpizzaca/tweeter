@@ -17,18 +17,6 @@ nav img {
   margin: 0.5em;
 }
 
-nav .arrow {
-  border: solid red;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-nav .arrow.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
-
 nav > .nav-component {
   color: #FFFFFF;
   margin: 1.5em;

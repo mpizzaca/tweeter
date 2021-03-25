@@ -125,12 +125,24 @@ const loadTweets = () => {
   .catch(console.log)
 };
 
-const handleNewTweetButton = () => {
+const toggleNewTweetBox = () => {
   if ($('form').is(':hidden')) {
     $('form').slideDown();
   } else {
     $('form').slideUp();
   }
+};
+
+const updateScrollToTopButton = () => {
+  if ($(document).scrollTop() > 150) {
+    $('#return-to-top').addClass('visible');
+  } else {
+    $('#return-to-top').removeClass('visible');
+  }
+};
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 $(document).ready(() => {
@@ -141,7 +153,11 @@ $(document).ready(() => {
   $('form').hide();
 
   // setup 'Write a new tweet' event handler
-  $('#new-tweet-button').on('click', handleNewTweetButton);
+  $('#new-tweet-button').on('click', toggleNewTweetBox);
+
+  // setup 'scroll to top' button
+  $(window).on('scroll', updateScrollToTopButton);
+  $('#return-to-top').on('click', scrollToTop);
   
   loadTweets();
   $('form').on('submit', handleTweetSubmit);
