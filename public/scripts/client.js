@@ -125,9 +125,23 @@ const loadTweets = () => {
   .catch(console.log)
 };
 
+const handleNewTweetButton = () => {
+  if ($('form').is(':hidden')) {
+    $('form').slideDown();
+  } else {
+    $('form').slideUp();
+  }
+};
+
 $(document).ready(() => {
   // hide our error message - will be shown if user enters malformed tweet
   $('form > label.error').hide();
+
+  // hide new-tweet - will be shown when user clicks 'Write a new tweet' button in nav
+  $('form').hide();
+
+  // setup 'Write a new tweet' event handler
+  $('#new-tweet-button').on('click', handleNewTweetButton);
   
   loadTweets();
   $('form').on('submit', handleTweetSubmit);

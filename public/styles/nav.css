@@ -41,6 +41,10 @@ nav > .nav-component > span {
   margin-bottom: 0.18em;
 }
 
+#new-tweet-button:hover {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1024px) {
   nav {
     background-color: transparent;
