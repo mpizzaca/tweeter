@@ -36,6 +36,20 @@ body {
    flex-direction: column;
  }
 
- main > section {
-   width: 80%;
- }
+main > section {
+  width: 80%;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+  }
+
+  body > header {
+    width: 50%;
+    height: 40%;
+    margin: 10rem 0 0 5rem;
+    padding: 2rem 1rem 0 1rem;
+  }
+
+}
