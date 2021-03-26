@@ -16,7 +16,12 @@ Made using HTML, CSS, JS, and jQuery.
 - Node 5.10.x or above
 
 ## Screenshots
+
+- Desktop Site
 ![Desktop Site](./screenshots/desktop.png)
+- Mobile Site
 ![Mobile Site](./screenshots/mobile.png)
+- Compose a Tweet
 ![Compose a tweet](./screenshots/mobile.png)
+- Show Errors
 ![Show an error](./screenshots/error.png)
