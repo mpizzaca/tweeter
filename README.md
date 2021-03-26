@@ -17,11 +17,16 @@ Made using HTML, CSS, JS, and jQuery.
 
 ## Screenshots
 
-- Desktop Site
+### Desktop Site
+
 ![Desktop Site](./screenshots/desktop.png)
-- Mobile Site
+
+### Mobile Site
+
 ![Mobile Site](./screenshots/mobile.png)
-- Compose a Tweet
+### Compose a Tweet
+
 ![Compose a tweet](./screenshots/mobile.png)
-- Show Errors
+### Show Errors
+
 ![Show an error](./screenshots/error.png)
