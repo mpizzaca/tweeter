@@ -8,7 +8,7 @@
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1616527540937
+    "created_at": 1616377371829
   },
   {
     "user": {
@@ -19,6 +19,28 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1616613940937
+    "created_at": 1616463771829
+  },
+  {
+    "user": {
+      "name": "Einstein",
+      "avatars": "https://i.imgur.com/ilT4JDe.png",
+      "handle": "@albertE"
+    },
+    "content": {
+      "text": "All generalizations are false, including this one."
+    },
+    "created_at": 1616550171829
+  },
+  {
+    "user": {
+      "name": "Curie",
+      "avatars": "https://i.imgur.com/lRUnDgU.png",
+      "handle": "@curieous"
+    },
+    "content": {
+      "text": "I was taught that the way of progress is neither swift nor easy."
+    },
+    "created_at": 1616636571829
   }
 ]
