@@ -14,3 +14,9 @@ Made using HTML, CSS, JS, and jQuery.
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+![Desktop Site](./screenshots/desktop.png)
+![Mobile Site](./screenshots/mobile.png)
+![Compose a tweet](./screenshots/mobile.png)
+![Show an error](./screenshots/error.png)
