@@ -26,7 +26,7 @@ Made using HTML, CSS, JS, and jQuery.
 ![Mobile Site](./screenshots/mobile.png)
 ### Compose a Tweet
 
-![Compose a tweet](./screenshots/mobile.png)
+![Compose a tweet](./screenshots/mobile_tweet.png)
 ### Show Errors
 
 ![Show an error](./screenshots/error.png)
