@@ -6,9 +6,15 @@
 
 const formatTweetDateString = createdAt => {
   const daysSinceCreation = Math.round((new Date() - new Date(createdAt)) / (1000 * 60 * 60 * 24));
-  if (daysSinceCreation === 0) return 'today';
-  if (daysSinceCreation === 1) return `${daysSinceCreation} day ago`;
-  return `${daysSinceCreation} days ago`;
+  let formattedString;
+  if (daysSinceCreation === 0) {
+    formattedString = 'today';
+  } else if (daysSinceCreation === 1) {
+    formattedString = `${daysSinceCreation} day ago`
+  } else {
+    formattedString = `${daysSinceCreation} days ago`;
+  }
+  return formattedString;
 };
 
 const createTweetElement = tweet => {
@@ -42,22 +48,22 @@ const createTweetElement = tweet => {
   $tweetFooterDate.attr('title', new Date(tweet.created_at));
 
   const $tweetActionElements = $('<div>'),
-    $tweetActionElement1 = $('<img>'),
-    $tweetActionElement2 = $('<img>'),
-    $tweetActionElement3 = $('<img>');
-  $tweetActionElement1.attr('src', 'images/flag.png');
-  $tweetActionElement1.attr('alt, flag');
-  $tweetActionElement2.attr('src', 'images/retweet.png');
-  $tweetActionElement2.attr('alt, retweet');
-  $tweetActionElement3.attr('src', 'images/heart.png');
-  $tweetActionElement3.attr('alt, heart');
+    $tweetActionFlag = $('<img>'),
+    $tweetActionRetweet = $('<img>'),
+    $tweetActionLike = $('<img>');
+  $tweetActionFlag.attr('src', 'images/flag.png');
+  $tweetActionFlag.attr('alt, flag');
+  $tweetActionRetweet.attr('src', 'images/retweet.png');
+  $tweetActionRetweet.attr('alt, retweet');
+  $tweetActionLike.attr('src', 'images/heart.png');
+  $tweetActionLike.attr('alt, heart');
 
   // put together the final article element
   $tweetArticle.append($tweetHeader, $tweetContent, $tweetFooter);
   $tweetHeader.append($tweetHeaderDiv, $tweetHandle);
   $tweetHeaderDiv.append($tweetAvatar, $tweetName);
   $tweetFooter.append($tweetFooterDate, $tweetActionElements);
-  $tweetActionElements.append($tweetActionElement1, $tweetActionElement2, $tweetActionElement3);
+  $tweetActionElements.append($tweetActionFlag, $tweetActionRetweet, $tweetActionLike);
 
   return $tweetArticle;
 };
